@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Pattaya.Global.UI.tabs</title>
+
+
+<link rel="stylesheet" href="css/base.css" />
+<link href="css/demo.css" type="text/css" rel="stylesheet"/>
+
+<script type="text/javascript" src="js/jquery-1.7.js"></script>
+<script type="text/javascript" src="js/global.js"></script>
+<script type="text/javascript" src="js/ui/pattaya-dialog.js"></script>
+
+<script src="js/demo.js"></script>
+</head>
+
+<body>
+	<article class="layout">
+		<hgroup class="header">
+			<h1>Pattaya.Global.UI.tabs(string selector, object options)</h1>
+			<h4>
+				tab切换。
+				<br />
+				filter为tab选择器， options为一系列配置参数。
+			</h4>
+		</hgroup>
+		<div class="cbox">
+			<h4 class="subtitle">options内配置说明：</h4>
+			<ul class="subcon">
+				<li>
+					<b>active：</b>
+					<span>integer。 激活项的索引 (默认：-1, 表示不管)，从0还是计数</span>
+				</li>
+				<li>
+					<b>trigger：</b>
+					<span>string。 触发事件类型 (默认："click")</span>
+				</li>
+				<li>
+					<b>triggerInterval：</b>
+					<span>int。 mouseover/mouseenter触发事件事件间隔 (默认：150[ms])</span>
+				</li>
+				<li>
+					<b>onChanging：</b>
+					<span>function(pre, cur)。 切换前执行的事件，参数分为上一个触发器和当前触发器 (默认：undefined)</span>
+				</li>
+				<li>
+					<b>onChanged：</b>
+					<span>function(pre, cur)。 切换后执行的事件，参数分为上一个触发器和当前触发器 (默认：undefined)</span>
+				</li>
+			</ul>
+			<h4 class="subtitle">示例</h4>
+			<div>
+				<code class="example">
+					<pre>
+绑定tab事件，HTML结构如下：
+					</pre>
+					<xmp class="htmlAppended" data-code-selector="#code1">
+<style>
+.tabTest .active {background: #ff0;}
+.conTest div {display: none;}
+.conTest .active {display:block;}
+</style>
+<ul class="tabTest clearfix">
+	<li class="active fl"><a href="#wo">tab1</a></li>
+	<li class="fl"><a href="#ni">tab2</a></li>
+</ul>
+<div class="conTest">
+	<div id="wo" class="active">我</div>
+	<div id="ni" >你</div>
+</div>
+					</xmp>
+					<pre>
+JS绑定：
+					</pre>
+					<pre id="code1">
+Pattaya.Global.UI.tabs(".tabTest", {
+	trigger: "mouseover",
+	triggerInterval: 200,
+	onChanged: function(){
+		console.log("aaa");
+	}
+});
+					</pre>
+				</code>
+			</div>
+		</div>
+	</article>
+</body>
+</html>

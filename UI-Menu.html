@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Pattaya.Global.UI.Menu</title>
+
+
+<link rel="stylesheet" href="css/base.css" />
+<link href="css/demo.css" type="text/css" rel="stylesheet"/>
+
+<script type="text/javascript" src="js/jquery-1.7.js"></script>
+<script type="text/javascript" src="js/global.js"></script>
+
+<script src="js/demo.js"></script>
+</head>
+
+<body>
+	<article class="layout">
+		<hgroup class="header">
+			<h1>Pattaya.Global.UI.Menu</h1>
+			<h4>
+				提供系列菜单绑定方法。
+			</h4>
+		</hgroup>
+		<ol>
+			<li class="cbox">
+				<h3 class="title">toggle(string selector, object settings)</h3>
+				<div class="container">
+					<h4 class="subtitle">概述：</h4>
+					<div class="subcon">
+						只适用于二级菜单。 用于简单的菜单显示和隐藏。
+					</div>
+					<h4 class="subtitle">参数说明：</h4>
+					<ul class="subcon">
+						<li>
+							<b class="lbl">selector：</b>
+							<span class="con">
+								menu选择器。
+							</span>
+						</li>
+						<li>
+							<b class="lbl">settings：</b>
+							<span class="con">
+								配置项，里面对象说明：
+								<br />
+								<span class="sub">
+									intervalTrigger：int。鼠标移入触发显示事件间隔 (默认：100)
+									<br />
+									IntervalHide：int。鼠标移出触发隐藏事件间隔 (默认：200)
+									<br />
+									before：function。定义显示之前执行的事件 (默认：undefined)
+									<br />
+									after：function。定义显示之前执行的事件 (默认：undefined)
+									<br />
+									posChanged：boolean。 打开的子菜单是否随窗口滚动而位置变化。(默认：true)
+									<br />
+									top： 当posChanged为true时， 默认的子菜单定位位置。 (默认：0)
+									<br />
+									wintop：posChanged为true时，且窗口出现滚动条时， 弹出的子菜单距窗口顶端的距离。 (默认：10)
+								</span>
+							</span>
+						</li>
+					</ul>
+					
+					<h4 class="subtitle">Example：</h4>
+					<ul class="subcon">
+						<li>
+							<h5>示例1：</h5>
+							<code id="example1" class="example">
+								<pre>
+HTML结构：
+								</pre>
+								<xmp class="htmlAppended" data-code-selector="#code1">
+<div class="menuTest" style="background:#f60;width:200px;margin:10px 0">
+	<p>一级菜单</p>
+	<div style="display:none;padding:0 0 0 10px">二级菜单</div>
+</div>
+								</xmp>
+								<pre id="code1">
+Pattaya.Global.UI.Menu.toggle(".menuTest", {posChanged:false});
+								</pre>
+							</code>
+						</li>
+						<li>
+							<h5>示例2：</h5>
+							<div>
+								这个posChanged为true时，太难演示， 请参见dx.com的菜单效果。
+							</div>
+						</li>
+					</ul>
+		</ol>
+	</article>
+</body>
+</html>

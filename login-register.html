@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Pattaya.Global.Validation</title>
+
+<link rel="stylesheet" href="css/base.css" />
+<link href="css/lr-dialog.css" type="text/css" rel="stylesheet"/>
+<link href="css/demo.css" type="text/css" rel="stylesheet"/>
+
+<script type="text/javascript" src="js/jquery-1.7.js"></script>
+<script type="text/javascript" src="js/global.js"></script>
+<script type="text/javascript" src="js/passport/login-register.js"></script>
+<script type="text/javascript" src="js/ui/pattaya-dialog.js"></script>
+</head>
+
+<body>
+	<script>
+		Pattaya.LoginOrSignUp.set({
+			"passportRootUrl": "http://cart2.dev.dx.com:8089"
+		});
+		
+		Pattaya.LoginOrSignUp.login();
+		
+		/*
+		var HTML_REGISTER_SUCCESS = 
+									
+									'<div class="login_register_dialog"><div class="wrap">' +
+										'<div class="reg_return"><div class="reg_return_wrap">' +
+											'<p class="con">Sorry! Goods from AU Direct and the HK Warehouse cannot be added to the new shopping cart.You can: </p>' +
+											'<p>Abandon the current goods in your cart and go to the old shopping cart to select again</p>' +
+											'<p>Select Worldwide products </p>' +
+										'</div>' +
+									'</div><div class="close"></div></div>';
+		
+		Pattaya.Global.UI.dialog(HTML_REGISTER_SUCCESS, {
+			usePanel: false,
+			overlayClose: false,
+			top: "15%"
+		});
+		*/
+	</script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+/*----- reset -----*/
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote,input, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, textarea, th, td{ margin:0; padding:0;}
+
+button, 
+input, 
+select, 
+textarea { 
+	font-size:100%; 
+	font-family:inherit; 
+}
+
+ul,
+ol { 
+	list-style:none; 
+}
+
+table { 
+	border-collapse:collapse; 
+	border-spacing:0; 
+}
+
+a { 
+	color:#085CA8; 
+	text-decoration: none; 
+}
+
+a:hover { 
+	color:#f66907; 
+	text-decoration: underline; 
+}
+
+img,
+iframe {
+	border:0 none; 
+}
+
+:focus {
+	outline:none;
+}
+
+::-moz-focus-inner {
+	border-color: transparent;
+}
+
+body { 
+	background:#fff;
+	color: #333;
+	font:12px/1.5 Helvetica,Arial,sans-serif;
+}
+
+frame {
+	bordercolor : #ff0000;
+	frameborder : no;
+}
+
+frameset {
+	bordercolor : #00ff00;
+	frameborder : no;
+}
+
+/*----- abbreviated style -----*/
+.pr { 
+	position:relative; 
+}
+
+.pa { 
+	position:absolute; 
+}
+
+.fr { 
+	float:right; 
+}
+
+.fl { 
+	float:left; 
+}
+
+.cb {
+	clear: both;
+}
+
+.cl {
+	clear: left;
+}
+
+.cr {
+	clear: right;
+}
+
+.tc {
+	text-align:center;
+}
+
+.tr {
+	text-align:right;
+}
+
+.tl {
+	text-align:left;
+}
+
+.hidden{ 
+	display:none;
+}
+
+.oh { 
+	overflow:hidden; 
+}
+
+.vm { 
+	vertical-align:middle; 
+}
+
+.tu { 
+	text-decoration:underline; 
+}
+
+/*----- clear float -----*/
+.clearfix{
+	*zoom:1
+}
+
+.clearfix:after {
+	clear:both;
+	display:block; 
+	height:0;
+	overflow: hidden;
+	content:'\20'; 
+}
+
+/*----- highlight -----*/
+.input-error{
+	border: 1px solid #f00 !important; 
+	background-color: #ffb8b8 !important; 
+	color:#f00;
+}
+
+.error{
+	color:#f00 !important;
+}
+
+.success{
+	color:#00a61f !important;
+}
+
+.prompt{
+	color:#f00 !important;
+}
+
+

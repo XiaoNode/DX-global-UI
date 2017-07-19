@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Pattaya.Global.Validation</title>
+
+<link rel="stylesheet" href="css/base.css" />
+<link href="css/demo.css" type="text/css" rel="stylesheet"/>
+
+<script type="text/javascript" src="js/jquery-1.7.js"></script>
+<script type="text/javascript" src="js/global.js"></script>
+</head>
+
+<body>
+	<article class="layout">
+		<hgroup class="header">
+			<h1>Pattaya.Global.Validation</h1>
+			<h4>定义一系列验证的小工具、小方法。各方法介绍如下：</h4>
+		</hgroup>
+		<ol>
+			<li class="cbox">
+				<h3 class="title">email(string email)</h3>
+				<div class="container">
+					<h4 class="subtitle">概述：</h4>
+					<div class="subcon">
+						检验字符串是否是email格式，返回bool类型的值
+					</div>
+					<h4 class="subtitle">Example：</h4>
+					<div class="example subcon">
+						Pattaya.Global.Validation.email("email@test.com"); // return true
+						<br />
+						Pattaya.Global.Validation.email("email"); // return false
+					</div>
+				</div>
+			</li>
+			<li class="cbox">
+				<h3 class="title">digits(string digits)</h3>
+				<div class="container">
+					<h4 class="subtitle">概述：</h4>
+					<div class="subcon">
+						检验字符串是否是纯数字，返回bool类型的值
+					</div>
+					<h4 class="subtitle">Example：</h4>
+					<div class="example subcon">
+						<pre>
+Pattaya.Global.Validation.digits("123"); // return true
+Pattaya.Global.Validation.digits("+123"); // return false
+Pattaya.Global.Validation.digits("111a"); // return false
+						</pre>
+					</div>
+				</div>
+			</li>
+			<li class="cbox">
+				<h3 class="title">url(string url)</h3>
+				<div class="container">
+					<h4 class="subtitle">概述：</h4>
+					<div class="subcon">
+						检验字符串是否是url地址格式，返回bool类型的值
+					</div>
+					<h4 class="subtitle">Example：</h4>
+					<div class="example subcon">
+						<pre>
+Pattaya.Global.Validation.url("http://www.google.cn"); // return true
+Pattaya.Global.Validation.url("www.google.cn"); // return false
+						</pre>
+					</div>
+				</div>
+			</li>
+		</ol>
+	</article>
+</body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Pattaya.Global.UI.dialog</title>
+
+<link rel="stylesheet" href="css/base.css" />
+<link href="css/demo.css" type="text/css" rel="stylesheet"/>
+<link href="css/dialog.css" type="text/css" rel="stylesheet"/>
+
+<script type="text/javascript" src="js/jquery-1.7.js"></script>
+<script type="text/javascript" src="js/global.js"></script>
+<script type="text/javascript" src="js/ui/pattaya-dialog.js"></script>
+
+<script src="js/demo.js"></script>
+</head>
+
+<body>
+	<article class="layout">
+		<hgroup class="header">
+			<h1>Pattaya.Global.UI.dialog</h1>
+			<h4>
+				需要引用dialog.css，
+				<br />
+				单个组件js为pattaya-dialog.js。依赖Pattaya.Global.ns，Pattaya.Global.UI.zIndex方法。
+			</h4>
+		</hgroup>
+		<ol>
+			<li class="cbox">
+				<h3 class="title">dialog(content, object settings)</h3>
+				<div class="container">
+					<h4 class="subtitle">概述：</h4>
+					<div class="subcon">
+						用于弹框插件，一切弹层的基方法。目前弹层垂直居中于窗口，暂不支持设置距窗口顶端的高度。
+					</div>
+					<h4 class="subtitle">参数说明：</h4>
+					<ul class="subcon">
+						<li>
+							<b class="lbl">content：</b>
+							<span class="con">
+								dialog弹出的内容。content格式说明：
+								<br />
+								<span class="sub">
+									"id:aa"：弹出将id=“aa”的标签
+									<br />
+									"ajax:http://url.com"： ajax加载弹框内容。
+									<br />
+									"iframe:http://iframe.com"： 弹出iframe。
+									<br />
+									其他：直接弹出content。
+								</span>
+							</span>
+						</li>
+						<li>
+							<b class="lbl">settings：</b>
+							<span class="con">
+								dialog配置项，其设置对象说明：
+								<br />
+								<span class="sub">
+									usePanel: 是否启用默认dialog模板
+									<br />
+									animationSpeed：动画持续时间 (默认：250[ms])
+									<br />
+									animationTop：tips效果移动相对距离 (默认：100[px])
+									<br />
+									autoClose：弹框自动关闭，值为false: 关闭自动关闭； 值为int: autoClose毫秒后自动关闭弹窗 (默认：false)
+									<br />
+									showClose：是否显示关闭按钮。true或false (默认true)
+									<br />
+									draggable：是否可以拖动。true或false (默认：false)
+									<br />
+									buttons：true/false or Array。true，将显示默认的按钮；false，不显示底部按钮；Array，根据数组内容显示自定义的按钮，格式：{ok:'ok', cancel: 'cancel'}。 (默认：true)
+									<br />
+									customClass：添加自定义class。(默认：'')
+									<br />
+									iconType：用于alert或tips时，设置内容背景图标样式。(css里暂未设置背景图标的样式。)
+									<br />
+									modal：是否显示模态层。true或false。 (默认：true)
+									<br />
+									overlayClose：设置是否点击模态层关闭对话框。true或false。 (默认：true)
+									<br />
+									overlayOpacity：设置模态层的透明度， (默认： .2)
+									<br />
+									overlayColor：设置模态层的背景色。 (默认：#000)
+									<br />
+									title：设置对话框的title。 当值为""的时候，不显示对话框header。
+									<br />
+									type：设置对话框的类型。根据此type 设置对话框不同的显示/隐藏效果， 及其他功能。目前只支持“tip”，
+									<br />
+									width：定义对话框的宽度。 (默认：auto)
+									<br />
+									height：定义对话框的高度。 (默认：auto)
+									<br />
+									onClose：关闭对话框或点击底部按钮时执行的事件。如：{ok:'ok', cancel: 'cancel'} 参数值为'ok', 'cancel'。根据此参数判断是哪个按钮触发了点击事件。
+									<br />
+									ajax：content参数为“ajax:..”格式时，启用的参数。设置ajax加载配置的参数。对象里各参数说明如下：
+									<br />
+									<span class="sub">
+										loadWidth：ajax加载时显示的宽度。<br />
+										loadHeight：ajax加载显示的高度。<br />
+										data：ajax加载传的数据参数。<br />
+										done：ajax完成执行的事件。<br />
+										fail：ajax请求失败的事件。<br />
+										always：ajax请求完执行的事件。
+									</span>
+									<br />
+									iframe：content参数为"iframe:.."格式时，启用的参数。对象里各参数说明如下：
+									<br />
+									<span class="sub">
+										loaded：iframe加载完成后执行的事件。<br />
+										loadWidth：iframe加载时显示的宽度。<br />
+										loadHeight：iframe加载显示的高度
+									</span>
+								</span>
+							</span>
+						</li>
+					</ul>
+					<h4 class="subtitle">Example：</h4>
+					<ul class="subcon">
+						<li>
+							<h5>示例1：</h5>
+							<code id="example1" class="example">
+								<pre>
+Pattaya.Global.UI.dialog("123123",
+	{
+		title:"提示",
+		buttons:{'ok':'ok', 'concel': 'concel'},
+		draggable: true,
+	
+		onClose: function(key) {
+			if(key === 'ok') {
+				alert(key);
+				return false; //return false 的话， 对话框不会关闭
+			} else if(key === 'concel') {
+				alert(key);
+			}
+		}
+	}
+);
+								</pre>
+							</code>
+							<div class="exe">
+								<button class="btnExe" data-code-selector="#example1">运行示例</button>
+								
+							</div>
+						</li>
+						<li>
+							<h5>示例2：</h5>
+							<code id="example2" class="example">
+								<pre>
+Pattaya.Global.UI.dialog("ajax:http://www.baidu.com",
+	{
+		title:"提示", 
+		buttons:{ok:'ok', concel: 'concel'}, 
+		ajax:{
+			loadWidth:150, 
+			loadHeight:150, 
+			data:{sku : '1138'}, 
+			done: function(d, data) {
+			},
+			fail: function(d) {
+			},
+			always: function(d) {
+				setTimeout(function(){d.html("123123");}, 3000);
+			}
+		},
+		onClose: function(key) {
+			if(key === 'ok') {
+				alert(key);
+				return false;
+			} else if(key === 'concel') {
+				alert(key);
+			}
+		}
+	}
+);
+								</pre>
+							</code>
+							<div class="exe">
+								<button class="btnExe" data-code-selector="#example2">运行示例</button>
+							</div>
+						</li>
+						<li>
+							<h5>示例3：</h5>
+							<code id="example3" class="example">
+								<pre>
+Pattaya.Global.UI.dialog("iframe:http://www.baissdu.com",
+	{
+		title:"提示", 
+		buttons:{ok:'OK', cancel: 'Cancel'}, 
+		iframe: {
+			loadWidth:150, 
+			loadHeight:150, 
+			loaded: function() {
+				alert(0);
+			}
+		},
+		onClose: function(key) {
+			if(key === 'ok') {
+				alert(key);
+				return false;
+			} else if(key === 'cancel') {
+				alert(key);
+			}
+		}
+	}
+);
+								</pre>
+							</code>
+							<div class="exe">
+								<button class="btnExe" data-code-selector="#example3">运行示例</button>
+							</div>
+						</li>
+					</ul>
+					
+				</div>
+			</li>
+			<li class="cbox">
+				<h3 class="title">alert(string msg, string title)</h3>
+				<div class="container">
+					<h4 class="subtitle">概述：</h4>
+					<div class="subcon">
+						类似window.alert()方法。弹出基本的提示消息框
+					</div>
+					<h4 class="subtitle">参数说明：</h4>
+					<ul class="subcon">
+						<li>
+							<b>msg：</b>
+							<span>弹出的消息内容。</span>
+						</li>
+						<li>
+							<b>title：</b>
+							<span>弹框的title。</span>
+						</li>
+					</ul>
+					<h4 class="subtitle">演示示例：</h4>
+					<div class="subcon example">
+						<code id="example4">
+							<pre>
+Pattaya.Global.UI.alert("It is a cat.", "Info");
+							</pre>
+						</code>
+						<div class="exe">
+							<button class="btnExe" data-code-selector="#example4">运行示例</button>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li class="cbox">
+				<h3 class="title">tip(string msg)</h3>
+				<div class="container">
+					<h4 class="subtitle">概述：</h4>
+					<div class="subcon">
+						弹出tip提示信息
+					</div>
+					<h4 class="subtitle">参数说明：</h4>
+					<ul class="subcon">
+						<li>
+							<b>msg：</b>
+							<span>弹出的消息内容。</span>
+						</li>
+					</ul>
+					<h4 class="subtitle">演示示例：</h4>
+					<div class="subcon example">
+						<code id="example5">
+							<pre>
+Pattaya.Global.UI.tip("It is a cat.");
+							</pre>
+						</code>
+						<div class="exe">
+							<button class="btnExe" data-code-selector="#example5">运行示例</button>
+						</div>
+					</div>
+				</div>
+			</li>
+		</ol>
+	</article>
+</body>
+</html>

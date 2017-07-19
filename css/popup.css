@@ -1,0 +1,7 @@
+.pop_wrapper .hd, .pop_wrapper .close { background:url(../img/popBoxUi.png) no-repeat; }
+.pop_wrapper { width:430px; background:#fff; border:solid 1px #c4c4c4; position:absolute; }
+.pop_wrapper .hd { height:28px; background-position:0 0; background-repeat:repeat-x; position:relative; }
+.pop_wrapper h2 { font-size:12px; line-height:28px; padding-left:15px; }
+.pop_wrapper .close { display:block; width:15px; height:15px; background-position:0 -30px; position:absolute; top:7px; right:10px; text-indent:-9999em; cursor:pointer; }
+.pop_wrapper .close:hover {background-position:-14px -30px;}
+.pop_wrapper .bd { padding:10px; background:#fff }

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Pattaya.Global.UI</title>
+
+<link rel="stylesheet" href="css/base.css" />
+<link rel="stylesheet" href="css/demo.css" />
+
+<script type="text/javascript" src="js/jquery-1.7.js"></script>
+<script type="text/javascript" src="js/global.js"></script>
+<script type="text/javascript" src="js/demo.js"></script>
+</head>
+
+<body>
+	<article class="layout">
+		<hgroup class="header">
+			<h1>Pattaya.Global.UI</h1>
+			<h4>定义一系列UI的小工具、小方法。各方法介绍如下：</h4>
+		</hgroup>
+		<ol>
+			<li class="cbox">
+				<h3 class="title">inputFocus(string selector, [function,function..])</h3>
+				<div class="container">
+					<h4 class="subtitle">概述：</h4>
+					<div class="subcon">用于默认input输入框聚焦时，移去默认值，</div>
+					<h4 class="subtitle">参数：</h4>
+					<div class="subcon">
+						selector：input选择器。  <br />
+						第二个参数是函数， 当点击Enter键时， 执行。也可以是数组， 里面参数是函数，用于多个input绑定不同的enter事件。
+					</div>
+					
+					<h4 class="subtitle">Example：</h4>
+					<div class="subcon example">
+						<code>
+							<pre>
+HTML：
+							</pre>
+							<xmp class="htmlAppended subcode" data-code-selector="#code1">
+<div class="exe"><input id="inputTest" value="keyword" /></div>
+							</xmp>
+							<pre>
+JS：
+							</pre>
+							<pre id="code1" class="subcode">
+Pattaya.Global.UI.inputFocus("#inputTest", function(){alert(0);});
+							</pre>
+						</code>
+						
+					</div>
+				</div>
+			</li>
+			
+		</ol>
+	</article>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Pattaya.Global.UI.popup</title>
+
+
+<link rel="stylesheet" href="css/base.css" />
+<link href="css/demo.css" type="text/css" rel="stylesheet"/>
+<link href="css/popup.css" type="text/css" rel="stylesheet"/>
+
+<script type="text/javascript" src="js/jquery-1.7.js"></script>
+<script type="text/javascript" src="js/global.js"></script>
+<script type="text/javascript" src="js/ui/pattaya-popup.js"></script>
+
+<script src="js/demo.js"></script>
+</head>
+
+<body>
+	<article class="layout">
+		<hgroup class="header">
+			<h1>Pattaya.Global.UI.popup</h1>
+			<h4>
+				需要引用popup.css，
+				<br />
+				依赖Pattaya.Global.ns，Pattaya.Global.UI.zIndex方法。
+			</h4>
+		</hgroup>
+		<ol>
+			<li class="cbox">
+				<h3 class="title">popup(string selector, object settings)</h3>
+				<div class="container">
+					<h4 class="subtitle">概述：</h4>
+					<div class="subcon">
+						用于popup弹框插件，
+					</div>
+					<h4 class="subtitle">参数说明：</h4>
+					<ul class="subcon">
+						<li>
+							<b class="lbl">selector：</b>
+							<span class="con">
+								popup弹出的内容。
+							</span>
+						</li>
+						<li>
+							<b class="lbl">settings：</b>
+							<span class="con">
+								popup配置项：<br />
+								<span class="sub">
+									
+									autoOpen：boolean。调用popup是否自动弹出 (默认：true)
+									<br />
+									autoClose：boolean。 点击其他地方，是否自动关闭popup。 (默认：false)
+									<br />
+									width：int。设置popup的宽度
+									<br />
+									height：int。设置popup的高度
+									<br />
+									popupClass：string。自定义popup样式class名
+								</span>
+							</span>
+						</li>
+					</ul>
+					<h4 class="subtitle">
+						返回值说明：
+					</h4>
+					<div class="subcon">
+						返回值包含4个对象分别如下：
+						<ul>
+							<li>show()：显示popup</li>
+							<li>hide()：隐藏popup</li>
+							<li>pos({left:, top:})：定位popup</li>
+							<li>unload()：remove popup</li>
+						</ul>
+					</div>
+					<h4 class="subtitle">Example：</h4>
+					<ul class="subcon">
+						<li>
+							<h5>示例1：</h5>
+							<code id="example1" class="example">
+								<pre>
+window.pp = Pattaya.Global.UI.popup('#test', {
+	title: '哈哈',
+	width: '432px'
+});
+
+								</pre>
+							</code>
+							<div class="exe">
+								<div id="test">asdasd</div>
+								<button class="btnExe" data-code-selector="#example1">运行示例</button>
+								
+							</div>
+						</li>
+					
+		</ol>
+	</article>
+</body>
+</html>

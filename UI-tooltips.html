@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Pattaya.Global.UI.popup</title>
+
+
+<link rel="stylesheet" href="css/base.css" />
+<link href="css/demo.css" type="text/css" rel="stylesheet"/>
+<link href="css/popup.css" type="text/css" rel="stylesheet"/>
+
+<script type="text/javascript" src="js/jquery-1.7.js"></script>
+<script type="text/javascript" src="js/global.js"></script>
+<script type="text/javascript" src="js/ui/pattaya-tooltips.js"></script>
+
+<script src="js/demo.js"></script>
+</head>
+
+<body>
+	<article class="layout">
+		<hgroup class="header">
+			<h1>Pattaya.Global.UI.tooltips</h1>
+			<h4>
+				需要引用
+				<br />
+				依赖Pattaya.Global.ns，Pattaya.Global.UI.zIndex方法。
+			</h4>
+		</hgroup>
+		<ol>
+			<li class="cbox">
+				<h3 class="title">tooltips(string selector, object options)</h3>
+				<div class="container">
+					<h4 class="subtitle">概述：</h4>
+					<div class="subcon">
+						用于tooltips插件，
+					</div>
+					<h4 class="subtitle">参数说明：</h4>
+					<ul class="subcon">
+						<li>
+							<b class="lbl">selector：</b>
+							<span class="con">
+								触发tooltips的选择符。
+							</span>
+						</li>
+						<li>
+							<b class="lbl">settings：</b>
+							<span class="con">
+								tooltips配置项：<br />
+								<span class="sub">
+									title：string。弹出框的内容( 支持html)
+									<br />
+									template：string。 定义弹出框的模板，title为空则直接弹出
+									<br />
+									trigger：string。定义弹出tips的方式
+									<br />
+									placement：string。设置弹出框在哪边，默认(bottom)
+									<br />
+									offset：obj。参数包括x: 定义弹框距触发器的水平间隔；y：定义弹框距触发器的垂直间隔
+									<br />
+									fx: obj。 参数包括duration：淡出/淡入效果持续时间
+									<br />
+									autoHide: number。设置弹框显示多少时间后自动关闭。
+									<br />
+									showing: function。设置弹框弹出之前的执行事件
+									<br />
+									hidden: function。设置弹框隐藏后的执行的事件
+								</span>
+							</span>
+						</li>
+					</ul>
+					<h4 class="subtitle">
+						返回值说明：
+					</h4>
+					<div class="subcon">
+						返回值包含4个对象分别如下：
+						<ul>
+							<li>show()：显示</li>
+							<li>hide()：隐藏</li>
+						</ul>
+					</div>
+					<h4 class="subtitle">Example：</h4>
+					<ul class="subcon">
+						<li>
+							<h5>示例1：</h5>
+							<code id="example1" class="example">
+								<pre>
+window.pp = Pattaya.Global.UI.tooltips('#test', {
+	title: '哈',
+	placement: 'right',
+	autoHide: 5000
+});
+
+								</pre>
+							</code>
+							<div class="exe">
+								<button id="test">test</button>
+								<button class="btnExe" data-code-selector="#example1">运行示例</button>
+								
+							</div>
+						</li>
+						<li>
+							<h5>示例2：</h5>
+							<code id="example2" class="example">
+								<pre>
+window.pp = Pattaya.Global.UI.tooltips('#test1', {
+	title: '哈',
+	placement: 'left'
+});
+
+								</pre>
+							</code>
+							<div class="exe">
+								<button id="test1">test</button>
+								<button class="btnExe" data-code-selector="#example2">运行示例</button>
+								
+							</div>
+						</li>
+						<li>
+							<h5>示例3：</h5>
+							<code id="example3" class="example">
+								<pre>
+window.pp = Pattaya.Global.UI.tooltips('#test2', {
+	title: '哈',
+	placement: 'bottom',
+	template: '#cart_tips'
+});
+								</pre>
+							</code>
+							<div class="exe">
+								<button id="test2">test</button>
+								<button class="btnExe" data-code-selector="#example3">运行示例</button>
+								
+							</div>
+						</li>
+					</ul>
+				</li>
+		</ol>
+	</article>
+	
+<div id="cart_tips">
+	<div class="cart_tips warning">
+			<p>Are you sure want to delete it?</p>
+			<p class="btn_wrap">
+				<a href="#">YES</a> &nbsp;
+				<a href="#">NO</a>
+			</p>
+			<i class="top bg"></i>
+			<i class="top fd"></i>
+	</div>
+</div>
+</body>
+</html>

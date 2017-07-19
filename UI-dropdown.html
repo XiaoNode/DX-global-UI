@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Pattaya.Global.UI.dropdown</title>
+
+
+<link rel="stylesheet" href="css/base.css" />
+<link href="css/demo.css" type="text/css" rel="stylesheet"/>
+
+<script type="text/javascript" src="js/jquery-1.7.js"></script>
+<script type="text/javascript" src="js/global.js"></script>
+
+<script src="js/demo.js"></script>
+</head>
+
+<body>
+	<article class="layout">
+		<hgroup class="header">
+			<h1>Pattaya.Global.UI.dropdown</h1>
+			<h4>
+				——模拟下拉框 UI组件。
+			</h4>
+		</hgroup>
+		<div class="cbox">
+			<h3 class="title">dropdown(string selector, object options)</h3>
+			<div class="container">
+				<h4 class="subtitle">selector：dropdown选择器</h4>
+				<h4 class="subtitle">options内配置说明：</h4>
+				<ul class="subcon">
+					<li>
+						<b class="lbl">trigger：</b>
+						<span class="con">string。 触发事件类型 (默认："mouseover")</span>
+					</li>
+					<li>
+						<b class="lbl">type：</b>
+						<span class="con">string ['menu' | 'select']。 设定下拉框点击后不同效果 (默认："select")</span>
+					</li>
+					<li>
+						<b class="lbl">delay：</b>
+						<span class="con">int。 mouseover/mouseenter触发事件事件间隔 (默认：20[ms])</span>
+					</li>
+					<li>
+						<b class="lbl">fx：</b>
+						<span class="con">object，下拉效果。对象包括type，值为: 'slideDown'(下拉显示) or 'none'(直接显示)； duration,效果持续时间，默认：200[ms]</span>
+					</li>
+					<li>
+						<b class="lbl">onChanging：</b>
+						<span class="con">function(curItem)。 点击下拉选项，效果发生前执行的事件 (默认：undefined)。参数为当前点击的option选项(jquery对象)</span>
+					</li>
+					<li>
+						<b class="lbl">onChanged：</b>
+						<span class="con">function(curItem)。 点击下拉选项，效果发生后执行的事件 (默认：undefined)。参数为当前点击的option选项(jquery对象)</span>
+					</li>
+				</ul>
+				<h4 class="subtitle">示例</h4>
+				<div class="subcon">
+					<code class="example">
+						<pre>
+绑定dropdown事件，HTML结构如下：
+						</pre>
+						<xmp class="htmlAppended" data-code-selector="#code1">
+<style>
+	.dp {width: 100px; margin: 15px 0;}
+	a.hovered {background: #f0f;}
+</style>
+<div class="testDropDown dp">
+	<a href="javascript:;" style="display:block;">点击我</a>
+	<ul style="display:none; background: #ff0;">
+		<li style="cursor:pointer">点击我</li>
+		<li style="cursor:pointer">点击你</li>
+		<li style="cursor:pointer">点击他</li>
+	</ul>
+</div>
+						</xmp>
+						<pre>
+JS绑定：
+						</pre>
+						<pre id="code1">
+Pattaya.Global.UI.dropdown(".testDropDown", {
+	trigger: "click",
+	onChanged: function(){
+		console.log("aaa");
+	}
+});
+						</pre>
+					</code>
+					<code class="example">
+						<pre>
+绑定dropdown事件，HTML结构如下：
+						</pre>
+						<xmp class="htmlAppended" data-code-selector="#code2">
+<div class="testDropDown2 dp">
+	<a href="javascript:;" style="display:block;">放在我上面</a>
+	<ul style="display:none; background: #ff0;">
+		<li style="cursor:pointer">放在我上面</li>
+		<li style="cursor:pointer">放在你上面</li>
+		<li style="cursor:pointer">放在他上面</li>
+	</ul>
+</div>
+						</xmp>
+						<pre>
+JS绑定：
+						</pre>
+						<pre id="code2">
+Pattaya.Global.UI.dropdown(".testDropDown2", {
+	type: 'menu',
+	onChanged: function(){
+		console.log("bbb");
+	}
+});
+						</pre>
+					</code>
+				</div>
+			</div>
+		</div>
+	</article>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Pattaya.Global.UI.zIndex</title>
+
+
+<link rel="stylesheet" href="css/base.css" />
+<link href="css/demo.css" type="text/css" rel="stylesheet"/>
+
+<script type="text/javascript" src="js/jquery-1.7.js"></script>
+<script type="text/javascript" src="js/global.js"></script>
+
+<script src="js/demo.js"></script>
+</head>
+
+<body>
+	<article class="layout">
+		<hgroup class="header">
+			<h1>Pattaya.Global.UI.zIndex</h1>
+			<h4>
+				——z-index相关操作， 主要用于辅助其他UI创建弹出层时，方便设置z-index值。
+			</h4>
+		</hgroup>
+		<div class="cbox">
+			<h4 class="subtitle">getLatest()</h4>
+			<div class="subcon">
+				获取最新的z-index值。默认从1000开始计数。
+			</div>
+			<h4 class="subtitle">示例</h4>
+			<div class="subcon">
+				<code class="example">
+					<pre id="code1">
+alert(Pattaya.Global.UI.zIndex.getLatest());
+					</pre>
+				</code>
+				<div>
+					<input class="btnExe exe" data-code-selector="#code1" type="button" value="运行代码" />
+				</div>
+			</div>
+		</div>
+	</article>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Pattaya.Global.ns</title>
+
+<link rel="stylesheet" href="css/base.css" />
+<link rel="stylesheet" href="css/demo.css" />
+
+<script type="text/javascript" src="js/jquery-1.7.js"></script>
+<script type="text/javascript" src="js/global.js"></script>
+
+
+</head>
+
+<body>
+	<article class="layout">
+		<hgroup class="header">
+			<h1>Pattaya.Global.ns</h1>
+			<h4>——注册命名空间</h4>
+		</hgroup>
+		<ol>
+			<li class="cbox">
+				<h3 class="title">ns(string strNamespace, object root)</h3>
+				<div class="container">
+					<h4 class="subtitle">概述</h4>
+					<div class="subcon">
+						在root空间下注册新命名空间。返回新注册的命名空间对象。 root可有可无， 默认是window对象。
+					</div>
+					<h4 class="subtitle">Example</h4>
+					<div class="subcon example">
+						<code>
+							<pre>
+var newNamespace = Pattaya.Global.ns("A.B.C"); //window下创建A.B.C空间对象。
+newNamespace.p = "a";
+alert(A.B.C.p) // 输出 "a"
+							</pre>
+						</code>
+					</div>
+				</div>
+			</li>
+		</ol>
+	</article>
+</body>
+</html>

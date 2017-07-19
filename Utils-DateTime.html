@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Pattaya.Global.Utils.DateTime</title>
+
+<link rel="stylesheet" href="css/base.css" />
+<link href="css/demo.css" type="text/css" rel="stylesheet"/>
+
+<script type="text/javascript" src="js/jquery-1.7.js"></script>
+<script type="text/javascript" src="js/global.js"></script>
+</head>
+
+<body>
+	<article class="layout">
+		<hgroup class="header">
+			<h1>Pattaya.Global.Utils.DateTime</h1>
+			<h4>定义用于日期格式转换的一系列方法。各方法用法如下：</h4>
+		</hgroup>
+		<ol>
+			<li class="cbox">
+				<h3 class="title">dateFormat(date, mask, utc)</h3>
+				<div class="container">
+					<h4 class="subtitle">概述</h4>
+					<div class="subcon">将日期转化为指定格式显示。</div>
+					<h4 class="subtitle">参数描述</h4>
+					<ul class="subcon">
+						<li>
+							<b class="lbl">date：</b>
+							<span class="con">待转换日期</span>
+						</li>
+						<li>
+							<b class="lbl">[mask]：</b>
+							<span class="con">
+								用来设置转换的格式。默认提供有如下格式：<br />
+								<span class="sub">
+									<i>"default": "ddd mmm dd yyyy HH:MM:ss"</i><br />
+									<i>shortDate: "m/d/yy"</i><br />
+									<i>mediumDate: "mmm d, yyyy"</i><br />
+									<i>longDate: "mmmm d, yyyy"</i><br />
+									<i>fullDate: "dddd, mmmm d, yyyy"</i><br />
+									<i>shortTime: "h:MM TT"</i><br />
+									<i>mediumTime: "h:MM:ss TT"</i><br />
+									<i>longTime: "h:MM:ss TT Z"</i><br />
+									<i>isoDate: "yyyy-mm-dd"</i><br />
+									<i>isoTime: "HH:MM:ss"</i><br />
+									<i>isoDateTime: "yyyy-mm-dd'T'HH:MM:ss"</i><br />
+									<i>isoUtcDateTime: "UTC:yyyy-mm-dd'T'HH:MM:ss'Z'"</i>
+								<span>
+							</span>
+						</li>
+						<li>
+							<b class="lbl">[utc]：</b>
+							<span class="con">true 或 false，用于指定是否取世界时日期。默认false</span>
+						</li>
+					</ul>
+					<h4 class="subtitle">Example：</h4>
+					<div class="example subcon">
+						<pre>
+Pattaya.Global.Utils.DateTime.dateFormat(new Date()); // Mon Jul 16 2012 15:34:46
+Pattaya.Global.Utils.DateTime.dateFormat(new Date(), "shortDate"); // 7/16/12
+Pattaya.Global.Utils.DateTime.dateFormat(1342420053186, "shortTime", false); // 2:27 PM
+						</pre>
+					</div>
+				</div>
+			</li>
+			<li class="cbox">
+				<h3 class="title">parseWCFDate(string wcfdate) / toWCFDate(Date wcfdate)</h3>
+				<div class="container"> 
+					<h4 class="subtitle">概述：</h4>
+					<div class="subcon">
+						parseWCFDate：将带有时区的日期字符串转换为日期格式。成功，返回一个Date对象；其他返回null。
+						<br />
+						toWCFDate：将Date类型对象转换为带有东八区时区的字符串格式日期，失败，则返回‘’。
+					</div>
+					<h4 class="subtitle">Example：</h4>
+					<div class="example subcon">
+						<pre>
+Pattaya.Global.Utils.DateTime.parseWCFDate("\/Date(1334245157210-0600)\/"); //Date
+Pattaya.Global.Utils.DateTime.parseWCFDate("\/Date(1334245157210+0600)\/"); //Date
+Pattaya.Global.Utils.DateTime.parseWCFDate("123123"); //null
+Pattaya.Global.Utils.DateTime.toWCFDate(new Date()); // "/Date(1342420053186+0800)/"
+Pattaya.Global.Utils.DateTime.toNetDate('asdasd'); // ""
+						</pre>
+					</div>
+				</div>
+			</li>
+			<li class="cbox">
+				<h3 class="title">parseNetDate(string netdate) / toNetDate(Date netdate)</h3>
+				<div class="container">
+					<h4 class="subtitle">概述：</h4> 
+					<div class="subcon">
+						parseNetDate：将字符串类型日期转换为Date类型。成功，返回一个Date对象；其他返回null。
+						<br />
+						toWCFDate：将Date类型对象转为字符串类型。失败，则返回‘’。
+					</div>
+				
+					<h4 class="subtitle">Example：</h4>
+					<div class="example subcon">
+						<pre>
+Pattaya.Global.Utils.DateTime.parseNetDate("\/Date(1334245157210)\/"); //Date
+Pattaya.Global.Utils.DateTime.parseWCFDate("123123"); //null
+Pattaya.Global.Utils.DateTime.toNetDate(new Date()); // "/Date(1342420053186)/"
+Pattaya.Global.Utils.DateTime.toNetDate('asdasd'); // ""
+						</pre>
+					</div>
+				</div>
+			</li>
+		</ol>
+	</article>
+</body>
+</html>

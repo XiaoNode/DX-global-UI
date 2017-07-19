@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Pattaya.Global.UI.numerical</title>
+
+
+<link rel="stylesheet" href="css/base.css" />
+<link href="css/demo.css" type="text/css" rel="stylesheet"/>
+
+<script type="text/javascript" src="js/jquery-1.7.js"></script>
+<script type="text/javascript" src="js/global.js"></script>
+
+<script src="js/demo.js"></script>
+</head>
+
+<body>
+	<article class="layout">
+		<hgroup class="header">
+			<h1>Pattaya.Global.UI.numerical(string filter, object options)</h1>
+			<h4>
+				数量操作的ui组件。目前主要用于产品数量的输入。
+				<br />
+				需要引用jQuery.caret.js
+				<br />
+				filter为输入框选择器， options为一系列配置参数。
+			</h4>
+		</hgroup>
+		<div class="cbox">
+			<h4 class="subtitle">options内配置说明：</h4>
+			<ul class="subcon">
+				<li>
+					<b class="lbl">step：</b>
+					<span class="con">实数。 每一次递增的数值 (默认：1)</span>
+				</li>
+				<li>
+					<b class="lbl">decCtrl：</b>
+					<span class="con">string。 递减控制器 (默认：undefined)</span>
+				</li>
+				<li>
+					<b class="lbl">incCtrl：</b>
+					<span class="con">string。 递增控制器 (默认：undefined)</span>
+				</li>
+				<li>
+					<b class="lbl">max：</b>
+					<span class="con">int。 输入框内所能输入的最大数值 (默认：undefined)</span>
+				</li>
+				<li>
+					<b class="lbl">min：</b>
+					<span class="con">int。 输入框内所允许输入的最小数值 (默认：undefined)</span>
+				</li>
+				<li>
+					<b class="lbl">defaultValue：</b>
+					<span class="con">int。 输入框的默认值 (默认：0)</span>
+				</li>
+				<li>
+					<b class="lbl">decimal：</b>
+					<span class="con">boolen。 输入框值显示为float还是int？ (默认：false)</span>
+				</li>
+				<li>
+					<b class="lbl">decimalDelimiter：</b>
+					<span class="con">string。 设置小数点的显示符号 (默认：".")</span>
+				</li>
+				<li>
+					<b class="lbl">decimalPrecision：</b>
+					<span class="con">string。 设置小数点的显示位数 (默认：2[保留2位小数点])</span>
+				</li>
+				<li>
+					<b class="lbl">onValueChanging：</b>
+					<span class="con">function。 输入框值改变之前执行的事件 (默认：undefined)</span>
+				</li>
+				<li>
+					<b class="lbl">onValueChanged：</b>
+					<span class="con">function。 输入框值改变之后执行的事件 (默认：undefined)</span>
+				</li>
+				<li>
+					<b class="lbl">styles：</b>
+					<span class="con">object。 输入框的样式变化[暂未启用改参数设置] (默认：{error: 'error'}，)</span>
+				</li>
+			</ul>
+			<h4 class="subtitle">返回值为obj类型，下其包含6个对象，各对象说明如下：</h4>
+			<ul class="subcon">
+				<li>
+					<b class="lbl">increase()：</b>
+					<span class="con">
+						function。 执行加法事件
+					</span>
+				</li>
+				<li>
+					<b class="lbl">decrease()：</b>
+					<span class="con">
+						function。 执行减法事件
+					</span>
+				</li>
+				<li>
+					<b class="lbl">unload()：</b>
+					<span class="con">
+						function。 初始化之前执行的事件
+					</span>
+				</li>
+				<li>
+					<b class="lbl">currentValue()：</b>
+					<span class="con">
+						function。 获取当前输入框值
+					</span>
+				</li>
+				<li>
+					<b class="lbl">enable()：</b>
+					<span class="con">
+						function。 启用numerical
+					</span>
+				</li>
+				<li>
+					<b class="lbl">disable()：</b>
+					<span class="con">
+						function。 禁用numerical
+					</span>
+				</li>
+			</ul>
+			<h4 class="subtitle">Example：</h4>
+			<div class="subcon">
+				<code class="example">
+					<pre>
+HTML：
+					</pre>
+					<xmp class="htmlAppended" data-code-selector="#code1">
+<div class="exe">
+	<a class="dec" href="javascript:;">-</a><input class="testNumerical" type="text" /><a class="inc" href="javascript:;">+</a>
+</div>
+					</xmp>
+					<pre>
+Javascript：
+					</pre>
+					<pre id="code1">
+window.numerical = Pattaya.Global.UI.numerical(".testNumerical", {
+	decCtrl: ".dec",
+	incCtrl: ".inc",
+	max: 30,
+	min: 2,
+	defaultValue: 2,
+	onValueChanged: function(nv, ov) {
+		console.log(nv+ ' ' + ov);
+	}
+});
+					</pre>
+					
+					<pre id="increase">
+numerical.increase(); //执行increase()
+					</pre>
+					<pre id="decrease">
+numerical.decrease(); //执行decrease()
+					</pre>
+					<pre id="currentValue">
+alert(numerical.currentValue()); //输出currentValue
+					</pre>
+					<pre id="currentValue">
+alert(numerical.currentValue()); //输出currentValue
+					</pre>
+					<pre id="enable">
+numerical.enable(); //启用
+					</pre>
+					<pre id="disable">
+numerical.disable(); //禁用
+					</pre>
+				</code>
+				<div class="exe">
+					<input class="btnExe" type="button" data-code-selector="#increase" value="执行increase()" />
+					<input class="btnExe" type="button" data-code-selector="#decrease" value="执行decrease()" />
+					<input class="btnExe" type="button" data-code-selector="#currentValue" value="输出currentValue()" />
+					<input class="btnExe" type="button" data-code-selector="#enable" value="执行enable()" />
+					<input class="btnExe" type="button" data-code-selector="#disable" value="执行disable()" />
+				</div>
+				<code class="example">
+					<pre>
+HTML：
+					</pre>
+					<xmp class="htmlAppended" data-code-selector="#code2">
+<div class="exe">
+	<a class="dec2" href="javascript:;">-</a><input class="testNumerical2" type="text" /><a class="inc2" href="javascript:;">+</a>
+</div>
+					</xmp>
+					<pre>
+Javascript：
+					</pre>
+					<pre id="code2">
+Pattaya.Global.UI.numerical(".testNumerical2", {
+	step: 0.1,
+	decCtrl: ".dec2",
+	incCtrl: ".inc2",
+	max: 10,
+	min: 2,
+	defaultValue: 2,
+	onValueChanged: function(nv, ov) {
+		console.log(nv+ ' ' + ov);
+	},
+	decimal: true
+});
+					</pre>
+				</code>
+			</div>
+		</div>
+		
+	</article>
+</body>
+</html>

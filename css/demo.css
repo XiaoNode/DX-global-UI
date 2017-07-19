@@ -1,0 +1,95 @@
+code {
+	
+}
+
+xmp {
+	margin: 0;
+	padding: 0;
+}
+
+xmp,
+pre {
+	padding: 10px 10px 0;
+	background: #f1f1f1;
+}
+
+.layout {
+	padding: 10px;
+}
+
+.header {
+	margin: 0 0 20px;
+}
+
+.header  h1 {
+	color: #f60;
+	font-size: 18px;
+}
+
+.header  h4 {
+	padding: 0 0 0 100px;
+}
+
+.cbox {
+	margin: 0 0 15px;
+}
+
+.cbox .title {
+	border-bottom: 2px solid #f60;
+	color: #f60;
+	font-size: 16px;
+	line-height: 24px;
+}
+
+.cbox .container {
+	padding: 0 10px;
+}
+
+.cbox .subtitle {
+	margin: 12px 0 2px;
+	border-bottom: 1px solid #999;
+	font-size: 14px;
+	line-height: 24px;
+}
+
+.cbox .subcon {
+	padding: 0 10px;
+}
+
+.example {
+	margin: 10px 0 0;
+}
+
+.exe {
+	margin: 10px 0 10px 20px;
+}
+
+.sub {
+	display: inline-block;
+	padding: 0 0 0 15px;
+}
+
+.subcode {
+	padding: 0 0 0 25px;
+}
+
+.cbox ul.subcon li {
+	overflow: hidden;
+	margin: 0 0 5px;
+}
+
+.cbox .subcon .lbl,
+.cbox .subcon .con {
+	float: left;
+}
+
+.cbox .subcon .lbl {
+	width: 120px;
+	text-align: right;
+}
+
+.cbox .subcon h5 {
+	line-height: 30px;
+	font-size: 12px;
+}
+

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Pattaya.Global.UI.Screen</title>
+
+
+<link rel="stylesheet" href="css/base.css" />
+<link href="css/demo.css" type="text/css" rel="stylesheet"/>
+
+<script type="text/javascript" src="js/jquery-1.7.js"></script>
+<script type="text/javascript" src="js/global.js"></script>
+<script type="text/javascript" src="js/ui/pattaya-dialog.js"></script>
+
+<script src="js/demo.js"></script>
+</head>
+
+<body>
+	<article class="layout">
+		<hgroup class="header">
+			<h1>Pattaya.Global.UI.Screen</h1>
+			<h4>
+				提供一系列屏幕相关操作UI组件
+			</h4>
+		</hgroup>
+		<ol>
+			<li class="cbox">
+				<h3 class="title">getDimensions()</h3>
+				<div class="container">
+					<h4 class="subtitle">概述：</h4>
+					<div class="subcon">
+						获取窗口、文档、页面高度和宽度。返回的对象包括：pageWidth、pageHeight、windowWidth、windowHeight、docWidth、docHeight。
+						<br />
+						pageWidth/pageHeight 只是获取文档内容的宽度和高度，计算不包含margin、padding、border。
+						<br />
+						docWidth/docHeight 是获取整个文档的宽度和高度。 计算包含margin、padding、border。
+						<br />
+						windowWidth/windowHeight 是获取窗口的宽度和高度。
+					</div>
+					<h4 class="subtitle">Example：</h4>
+					<div class="subcon">
+						<code id="example1" class="example">
+							<pre>
+var dimensions = Pattaya.Global.UI.Screen.getDimensions();
+alert(dimensions.pageWidth + ' ' + dimensions.windowWidth + ' ' + dimensions.docWidth);
+							</pre>
+						</code>
+						<div class="exe">
+							<button class="btnExe" data-code-selector="#example1">运行示例</button>
+						</div>
+					</div>
+				</div>
+			</li>
+		</ol>
+	</article>
+</body>
+</html>

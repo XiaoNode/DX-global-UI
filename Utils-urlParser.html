@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Pattaya.Global.Utils</title>
+
+<link rel="stylesheet" href="css/base.css" />
+<link href="css/demo.css" type="text/css" rel="stylesheet"/>
+
+<script type="text/javascript" src="js/jquery-1.7.js"></script>
+<script type="text/javascript" src="js/global.js"></script>
+</head>
+
+<body>
+	<article class="layout">
+		<hgroup class="header">
+			<h1>Pattaya.Global.Utils.urlParser</h1>
+			<h4>定义操作url的一系列方法：</h4>
+		</hgroup>
+		<ol>
+			<li class="cbox">
+				<h3 class="title">urlParser(url)</h3>
+				<div class="container">
+					<h4 class="subtitle">概述：</h4> 
+					<div class="subcon">
+						分析url， 并返回一些列快速操作url的方法。
+					</div>
+					<h4 class="subtitle">参数：</h4> 
+					<ul class="subcon">
+						<li>
+							<b>url：</b>
+							<span>可以是绝对路径， 也可以是相对路径（相对当前页面的url）。</span>
+						</li>
+					</ul>
+					<h4 class="subtitle">返回值介绍：</h4>
+					<ul class="subcon">
+						<li>
+							<b>get(string param)</b>
+							<span>根据参数，返回相应的url字段值</span>
+						</li>
+						<li>
+							<b>set(string param, string value)</b>
+							<span>设置某一url字段的值</span>
+						</li>
+						<li>
+							<b>getParam(string param)</b>
+							<span>获取某一url的search字段的参数值</span>
+						</li>
+						<li>
+							<b>setParam(string param, string value)</b>
+							<span>设置某一url的search字段的参数值</span>
+						</li>
+					</ul>
+					<h4 class="subtitle">Example：</h4>
+					<div class="subcon example">
+						<pre>
+var oUrl = Pattaya.Global.Utils.urlParser("../a.html?a=1#asd");
+oUrl.get("href");
+oUrl.get("protocol");
+oUrl.get("hostname");
+oUrl.get("port");
+oUrl.get("host");
+oUrl.get("search");
+
+oUrl.setParam('a', 122);
+
+oUrl.getParam('a'); //122
+						</pre>
+					</div>
+				</div>
+				<script>
+					var oUrl = Pattaya.Global.Utils.urlParser("http://www.baidu.com/Utils.html?cccc=1#aaaa");
+					var url = window.location;
+					
+					console.log(oUrl.get("href"));
+					console.log(oUrl.get("protocol"));
+					console.log(oUrl.get("hostname"));
+					console.log(oUrl.get("port"));
+					console.log(oUrl.get("host"));
+					console.log(oUrl.get("pagename"));
+					console.log(oUrl.get("pathname"));
+					console.log(oUrl.get("search"));
+					console.log(oUrl.get("hash"));
+					console.log(oUrl.getParam('a'));
+					oUrl.setParam('a', 122);
+					console.log(oUrl.get("href"));
+				</script>
+			</li>
+			
+		</ol>
+	</article>
+</body>
+</html>

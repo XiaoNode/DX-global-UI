@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Pattaya.Global.Utils</title>
+
+<link rel="stylesheet" href="css/base.css" />
+<link href="css/demo.css" type="text/css" rel="stylesheet"/>
+
+<script type="text/javascript" src="js/jquery-1.7.js"></script>
+<script type="text/javascript" src="js/global.js"></script>
+</head>
+
+<body>
+	<article class="layout">
+		<hgroup class="header">
+			<h1>Pattaya.Global.Utils</h1>
+			<h4>定义一系列小工具、小方法。各方法介绍如下：</h4>
+		</hgroup>
+		<ol>
+			<li class="cbox">
+				<h3 class="title">fixedEncodeURI(string str)</h3>
+				<div class="container">
+					<h4 class="subtitle">方法原型：</h4>
+					<div class="subcon">
+						<pre>
+function fixedEncodeURI(str) {
+	return encodeURI(str).replace(/%5B/g, '[').replace(/%5D/g, ']');
+}
+						</pre>
+					</div>
+				</div>
+			</li>
+			<li class="cbox">
+				<h3 class="title">fixedEncodeURIComponent(string str)</h3>
+				<div class="container">
+					<h4 class="subtitle">方法原型：</h4>
+					<div class="subcon example">
+						<pre>
+function fixedEncodeURIComponent(str) {
+	return encodeURIComponent(str).replace(/!/g, '%21').replace(/'/g, '%27').replace(/\(/g, '%28').replace(/\)/g, '%29').replace(/\*/g, '%2A');
+}
+						</pre>
+					</div>
+				</div>
+			</li>
+			<li class="cbox">
+				<h3 class="title">format(string str, {object} | params)</h3>
+				<div class="container">
+					<h4 class="subtitle">概述：</h4> 
+					<div class="subcon">
+						用于字符串替换。待替换的数据有2中传参形式：一种是使用json格式数据， 一种是多个参数以字符串形式传入。
+					</div>
+					<h4 class="subtitle">Example：</h4>
+					<div class="subcon example">
+						<pre>
+Pattaya.Global.Utils.format("{0} is a {1}", "It", "dog"); // return "It is a dog"
+Pattaya.Global.Utils.format("{name} is a {thing}", {"name": "It", "thing": "dog"}); // return "It is a dog"
+						</pre>
+					</div>
+				</div>
+			</li>
+			<li class="cbox">
+				<h3 class="title">contains(source, target, funcCompare)</h3>
+				<div class="container">
+					<h4 class="subtitle">概述：</h4> 
+					<div class="subcon">
+						判断原参数值是否包含目标参数值。source和target参数必须的。
+					</div>
+					<h4 class="subtitle">参数：</h4> 
+					<ul class="subcon">
+						<li>
+							<b>source：</b>
+							<span>原参数值</span>
+						</li>
+						<li>
+							<b>target：</b>
+							<span>待比较的参数值</span>
+						</li>
+						<li>
+							<b>funcCompare：</b>
+							<span>自定义包含规则</span>
+						</li>
+					</ul>
+					<h4 class="subtitle">Example：</h4>
+					<div class="subcon example">
+						<pre>
+Pattaya.Global.Utils.contains("12", 1); // return true;
+Pattaya.Global.Utils.contains([1,2], 1); // return true;
+Pattaya.Global.Utils.contains([1,2], 0); //return false;
+Pattaya.Global.Utils.contains([1,2], 0, function(s, t){return s > t}); //return true;
+						</pre>
+					</div>
+				</div>
+			</li>
+			<li class="cbox">
+				<h3 class="title">firstOrUndefined(source, funcCompare)</h3>
+				<div class="container">
+					<h4 class="subtitle" >概述：</h4> 
+					<div class="subcon">
+						根据匹配规则， 获取数组中第一个匹配到的元素。匹配到，则返回该匹配到的元素；没有匹配到，则返回undefined。
+						目前，source只支持数组类型
+					</div>
+					<h4 class="subtitle">参数：</h4> 
+					<ul class="subcon">
+						<li>
+							<b>source：</b>
+							<span>待匹配数组</span>
+						</li>
+						<li>
+							<b>[funcCompare]：</b>
+							<span>自定义匹配规则</span>
+						</li>
+					</ul>
+					<h4 class="subtitle">Example：</h4>
+					<div class="subcon example">
+						<pre>
+Pattaya.Global.Utils.firstOrUndefined([1, 2], function(v){return v == 1;}); // return 1;
+Pattaya.Global.Utils.firstOrUndefined([1, 2], function(v){return v == 3;}); // return undefined;
+						</pre>
+					</div>
+				</div>
+			</li>
+			<li class="cbox">
+				<h3 class="title">find(source, funcCompare)</h3>
+				<div class="container">
+					<h4 class="subtitle">概述：</h4> 
+					<div class="subcon">
+						类似于firstOrUndefined()方法，不同的是find()返回所有匹配到的元素，返回类型为Array，没有匹配到，则返回一个空Array。
+						目前，该方法只支持数组类型的匹配。source, funcCompare都是必须的参数。
+					</div>
+					<h4 class="subtitle">参数：</h4> 
+					<ul class="subcon">
+						<li>
+							<b>source：</b>
+							<span>待匹配数组</span>
+						</li>
+						<li>
+							<b>funcCompare：</b>
+							<span>自定义匹配规则</span>
+						</li>
+					</ul>
+					<h4 class="subtitle">Example：</h4>
+					<div class="example subcon">
+						<pre>
+Pattaya.Global.Utils.find([1, 2], function(v){return v > 0;}); // return [1, 2];
+Pattaya.Global.Utils.find([1, 2], function(v){return v > 3;}); // return [];
+						</pre>
+					</div>
+				</div>
+			</li>
+			<li class="cbox">
+				<h3 class="title">cutString(str, len, endWith)</h3>
+				<div class="container">
+					<h4 class="subtitle">概述：</h4> 
+					<div class="subcon">
+						将字符串剪切为需要的长度，字符串大于要求的长度，则以所设置的后缀结尾，
+					</div>
+					<h4 class="subtitle">参数：</h4> 
+					<ul class="subcon">
+						<li>
+							<b class="lbl">str：</b>
+							<span class="con">待剪切字符串</span>
+						</li>
+						<li>
+							<b class="lbl">lei：</b>
+							<span class="con">剪切长度</span>
+						</li>
+						<li>
+							<b class="lbl">[endWith]：</b>
+							<span class="con">结尾后缀</span>
+						</li>
+					</ul>
+					<h4 class="subtitle">Example：</h4>
+					<div class="example subcon">
+						<pre>
+Pattaya.Global.Utils.cutString("abcdefghigklmn", 5, "..."); // return "ab...";
+Pattaya.Global.Utils.cutString("abc", 5, "..."); // return "abc";
+						</pre>
+					</div>
+				</div>
+			</li>
+			<li class="cbox">
+				<h3 class="title">encodeHtml(str)</h3>
+				<div class="container">
+					<h4 class="subtitle">概述：</h4> 
+					<div class="subcon">
+						对字符串进行html的特殊字符转义
+					</div>
+					<h4 class="subtitle">参数：</h4> 
+					<ul class="subcon">
+						<li>
+							<b class="lbl">str：</b>
+							<span class="con">待转义字符串</span>
+						</li>
+					</ul>
+					<h4 class="subtitle">Example：</h4>
+					<div class="example subcon">
+						<pre>
+Pattaya.Global.Utils.encodeHtml("\<a\>\<\/a\>"); // return "&amp;lt;a&amp;gt;&amp;lt;&amp;#x2F;a&amp;gt;";
+						</pre>
+					</div>
+				</div>
+			</li>
+			<li class="cbox">
+				<h3 class="title">decodeHtml(str)</h3>
+				<div class="container">
+					<h4 class="subtitle">概述：</h4> 
+					<div class="subcon">
+						对字符串进行html的特殊字符反转义
+					</div>
+					<h4 class="subtitle">参数：</h4> 
+					<ul class="subcon">
+						<li>
+							<b class="lbl">str：</b>
+							<span class="con">待反转义字符串</span>
+						</li>
+					</ul>
+					<h4 class="subtitle">Example：</h4>
+					<div class="example subcon">
+						<pre>
+Pattaya.Global.Utils.decodeHtml("&amp;lt;a&amp;gt;&amp;lt;&amp;#x2F;a&amp;gt;"); // return "&lt;a&gt;&lt;&#x2F;a&gt;";
+						</pre>
+					</div>
+				</div>
+			</li>
+		</ol>
+	</article>
+</body>
+</html>
