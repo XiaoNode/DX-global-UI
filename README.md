@@ -3,6 +3,6 @@ DX global UI
 
 Jquery+Css 网站公用UI
 
-在DX.COM项目中实际运用
+在http://www.dx.com/项目中实际运用
 
-实例为剥离文件，有说明
+模块化开发示例
